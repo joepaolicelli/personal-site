@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // https://nuxt.com/modules
-  modules: ['@nuxthub/core', '@nuxt/eslint', '@unocss/nuxt'],
+  modules: ['@nuxthub/core', '@nuxt/eslint', '@unocss/nuxt', '@nuxt/fonts'],
 
   // https://devtools.nuxt.com
   devtools: { enabled: true },
@@ -25,5 +25,14 @@ export default defineNuxtConfig({
     config: {
       stylistic: false,
     },
+  },
+
+  // https://unocss.dev/guide/style-reset
+  css: ['@unocss/reset/normalize.css'],
+
+  // https://fonts.nuxt.com/get-started/configuration
+  fonts: {
+    priority: ['bunny', 'google'],
+    families: [{ name: 'Kufam', weights: [400, 600] }],
   },
 });

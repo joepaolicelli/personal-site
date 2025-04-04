@@ -3,4 +3,9 @@ import { defineConfig, presetAttributify } from 'unocss';
 
 export default defineConfig({
   presets: [presetWind4(), presetAttributify()],
+  theme: {
+    font: {
+      kufam: 'Kufam',
+    },
+  },
 });
