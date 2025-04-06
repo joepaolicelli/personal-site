@@ -1,7 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // https://nuxt.com/modules
-  modules: ['@nuxthub/core', '@nuxt/eslint', '@unocss/nuxt', '@nuxt/fonts'],
+  modules: [
+    '@nuxthub/core',
+    '@nuxt/eslint',
+    '@unocss/nuxt',
+    '@nuxt/fonts',
+    'motion-v/nuxt',
+  ],
 
   // https://devtools.nuxt.com
   devtools: { enabled: true },
