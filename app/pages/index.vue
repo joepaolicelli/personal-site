@@ -60,9 +60,12 @@ const orbitingIcon = {
 
 <template>
   <div class="container mx-auto px-4 py-4">
-    <div class="gradientDiv fixed -z-10" :style="gradientDiv"></div>
     <div
-      class="picDiv fixed w-fit bg-white"
+      class="gradientDiv hidden md:block fixed -z-10"
+      :style="gradientDiv"
+    ></div>
+    <div
+      class="picDiv hidden md:block fixed w-fit bg-white"
       flex="~"
       border="2 rounded-2xl blue-300"
       shadow="lg blue-300/50"
@@ -71,14 +74,14 @@ const orbitingIcon = {
       <img src="public/me.jpg" class="max-h-[300px] rounded-2xl shadow-xl" />
     </div>
     <div class="w-fit md:h-[100vh] m-auto">
-      <div class="flex flex-col justify-center h-full ml-[-100px] my-auto">
+      <div class="flex flex-col justify-center h-full md:ml-[-100px] my-auto">
         <motion.svg
           width="1000"
           height="1000"
           viewBox="0 0 1000 1000"
           initial="hidden"
           animate="visible"
-          class="absolute ml-[-50px] -z-50"
+          class="hidden md:block absolute ml-[-50px] -z-50"
         >
           <motion.circle
             class="circle-path"
@@ -104,11 +107,13 @@ const orbitingIcon = {
           shadow="lg blue-300/50"
           p="x-5 t-7 b-4"
         >
-          <div class="text-8xl/28">Hi.</div>
-          <div ref="nameTextRef" class="text-5xl/16 w-fit pl-1">
+          <div class="text-4xl md:text-8xl/28">Hi.</div>
+          <div ref="nameTextRef" class="text-xl md:text-5xl/16 w-fit pl-1">
             I'm Joe Paolicelli,
           </div>
-          <div class="text-5xl/16 pl-1">a Full Stack Developer.</div>
+          <div class="text-xl md:text-5xl/16 pl-1">
+            a Full Stack Developer.
+          </div>
         </div>
         <div class="flex gap-5 py-5">
           <div>
@@ -118,7 +123,7 @@ const orbitingIcon = {
               aria-label="GitHub"
               ><button
                 type="button"
-                text="5xl"
+                text="3xl md:5xl"
                 class="bg-white"
                 border="4 rounded-xl"
                 p="3"
@@ -135,7 +140,7 @@ const orbitingIcon = {
               aria-label="LinkedIn"
               ><button
                 type="button"
-                text="5xl"
+                text="3xl md:5xl"
                 class="bg-white"
                 border="4 rounded-xl"
                 p="3"
