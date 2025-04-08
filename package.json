@@ -16,6 +16,8 @@
     "@nuxt/fonts": "0.11.1",
     "@nuxthub/core": "^0.8.18",
     "@unocss/reset": "66.1.0-beta.8",
+    "@vueuse/core": "^13.0.0",
+    "@vueuse/nuxt": "13.0.0",
     "motion-v": "1.0.0-beta.0",
     "nuxt": "^3.16.1",
     "vue": "^3.5.13",
