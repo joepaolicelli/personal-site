@@ -4,6 +4,7 @@ import { motion, useTime, useTransform } from 'motion-v';
 const nameTextRef = useTemplateRef('nameTextRef');
 const nameTextBounding = reactive(useElementBounding(nameTextRef));
 
+const showPic = ref(false);
 const picDivTop = ref('0px');
 const picDivLeft = ref('0px');
 const welcomeTextHeight = ref(0);
@@ -19,6 +20,7 @@ watch(nameTextBounding, (newBounding) => {
   picDivTop.value = `${newBounding.bottom - 366}px`;
   picDivLeft.value = `${newBounding.right + 32}px`;
   welcomeTextHeight.value = newBounding.height;
+  showPic.value = true;
 
   gradientDiv.left = `${newBounding.left - 775}px`;
 });
@@ -124,15 +126,23 @@ const dockerOrbit = {
       class="gradientDiv hidden md:block fixed -z-10"
       :style="gradientDiv"
     ></div>
-    <div
-      class="picDiv hidden md:block fixed w-fit bg-white"
-      flex="~"
-      border="2 rounded-2xl blue-300"
-      shadow="lg blue-300/50"
-      p="4"
+    <Transition
+      enter-active-class="transition-all duration-1000"
+      enter-from-class="opacity-0 translate-y--5"
+      enter-to-class="opacity-100"
+      mode="out-in"
     >
-      <img src="public/me.jpg" class="max-h-[300px] rounded-2xl shadow-xl" />
-    </div>
+      <div
+        v-if="showPic"
+        class="picDiv hidden md:block fixed w-fit bg-white"
+        flex="~"
+        border="2 rounded-2xl blue-300"
+        shadow="lg blue-300/50"
+        p="4"
+      >
+        <img src="public/me.jpg" class="max-h-[300px] rounded-2xl shadow-xl" />
+      </div>
+    </Transition>
     <div class="w-fit md:h-[100vh] m-auto">
       <div class="flex flex-col justify-center h-full md:ml-[-100px] my-auto">
         <motion.svg
@@ -258,7 +268,7 @@ const dockerOrbit = {
     <div class="grid md:grid-cols-[2fr_1fr] gap-3">
       <div
         flex="~ wrap"
-        gap="x-7 y-5"
+        gap="x-7 y-8 md:y-5"
         border="2 rounded-2xl blue-300"
         shadow="lg blue-300/50"
         p="3"
