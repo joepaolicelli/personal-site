@@ -5,6 +5,7 @@ export default defineConfig({
   presets: [presetWind4(), presetAttributify(), presetIcons()],
   theme: {
     font: {
+      armata: 'Armata',
       kufam: 'Kufam',
     },
   },

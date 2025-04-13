@@ -21,8 +21,6 @@ watch(nameTextBounding, (newBounding) => {
   welcomeTextHeight.value = newBounding.height;
 
   gradientDiv.left = `${newBounding.left - 775}px`;
-  console.log(newBounding.left);
-  console.log(gradientDiv.left);
 });
 
 const draw = {
@@ -47,13 +45,75 @@ const shape = {
 };
 
 const time = useTime();
-// const orbit = useTransform(time, [0, 4000], [0, 360], { clamp: false });
-const orbitingIcon = {
+
+// Inelegant to repeat this, but prevents warnings from putting the
+// useTransform compostable inside a function.
+const vueOrbit = {
   x: useTransform(
     () => Math.cos(((2 * Math.PI) / 25000) * (time.get() % 25000)) * 300,
   ),
   y: useTransform(
     () => Math.sin(((2 * Math.PI) / 25000) * (time.get() % 25000)) * 300,
+  ),
+};
+const tsOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 10000) % 25000)) * 300,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 10000) % 25000)) * 300,
+  ),
+};
+const nodeOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 13000) % 25000)) * 300,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 13000) % 25000)) * 300,
+  ),
+};
+const pythonOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 17000) % 25000)) * 300,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 17000) % 25000)) * 300,
+  ),
+};
+const tailwindOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 21000) % 25000)) * 300,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 21000) % 25000)) * 300,
+  ),
+};
+const postgresOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 40000) * ((time.get() + 24000) % 40000)) * 300,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 40000) * ((time.get() + 24000) % 40000)) * 300,
+  ),
+};
+const dockerOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 5000) % 25000)) * 300,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 5000) % 25000)) * 300,
   ),
 };
 </script>
@@ -95,27 +155,57 @@ const orbitingIcon = {
           />
         </motion.svg>
         <motion.div
-          :style="orbitingIcon"
+          :style="vueOrbit"
           text="3xl"
-          class="i-logos-vue absolute ml-[-65px] -z-30"
+          class="i-logos-vue hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <motion.div
+          :style="tsOrbit"
+          text="3xl"
+          class="i-logos-typescript-icon hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <motion.div
+          :style="nodeOrbit"
+          text="3xl"
+          class="i-logos-nodejs hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <motion.div
+          :style="pythonOrbit"
+          text="3xl"
+          class="i-logos-python hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <motion.div
+          :style="postgresOrbit"
+          text="3xl"
+          class="i-logos-postgresql hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <motion.div
+          :style="tailwindOrbit"
+          text="3xl"
+          class="i-logos-tailwindcss-icon hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <motion.div
+          :style="dockerOrbit"
+          text="3xl"
+          class="i-logos-docker-icon hidden md:block absolute ml-[-65px] -z-30"
         />
         <div
-          class="w-fit bg-white"
-          flex="~ col"
+          class="w-[80vw] md:w-fit bg-white text-center md:text-left"
+          flex="~ col "
           font="kufam semibold"
           border="2 rounded-2xl blue-300"
           shadow="lg blue-300/50"
           p="x-5 t-7 b-4"
         >
           <div class="text-4xl md:text-8xl/28">Hi.</div>
-          <div ref="nameTextRef" class="text-xl md:text-5xl/16 w-fit pl-1">
+          <div ref="nameTextRef" class="text-xl md:text-5xl/16 md:w-fit pl-1">
             I'm Joe Paolicelli,
           </div>
           <div class="text-xl md:text-5xl/16 pl-1">
             a Full Stack Developer.
           </div>
         </div>
-        <div class="flex gap-5 py-5">
+        <div class="flex gap-5 py-5 self-center md:self-start">
           <div>
             <a
               href="https://github.com/joepaolicelli"
@@ -151,9 +241,181 @@ const orbitingIcon = {
             </a>
           </div>
         </div>
+        <div
+          class="hidden absolute self-center bottom-px p-5"
+          flex="md:~"
+          gap="2"
+          text="xl"
+          font="armata"
+        >
+          About Me
+          <div
+            class="i-solar-double-alt-arrow-down-line-duotone text-2xl self-end"
+          ></div>
+        </div>
       </div>
     </div>
-    <div class="grid md:grid-cols-[65%_35%]"></div>
+    <div class="grid md:grid-cols-[2fr_1fr] gap-3">
+      <div
+        flex="~ wrap"
+        gap="x-7 y-5"
+        border="2 rounded-2xl blue-300"
+        shadow="lg blue-300/50"
+        p="3"
+      >
+        <div class="text-lg" font="armata">
+          <p class="py-2">
+            I'm a <strong>Full Stack web developer</strong> who enjoys
+            integrating all the parts of a complex system together as much as I
+            enjoy spending time on the little details to make sure they're just
+            right.
+          </p>
+          <p class="py-2">
+            In my last job, I took on roles from
+            <strong>web app design and development</strong>, to improving
+            <strong>observability and automation</strong> in large scale data
+            pipelines, to team <strong>leadership</strong>, to developing
+            services to configure and secure deployments to
+            <strong>cloud infrastructure</strong>.
+          </p>
+          <p class="py-2">
+            The result is that I've developed a robust set of skills in all
+            layers of the web development software stack, and a passion for
+            using those skills to <strong>create new things</strong> and
+            <strong>solve complex problems</strong>.
+          </p>
+        </div>
+        <div class="text-md text-center" font="armata">
+          Some of the many languages, frameworks, libraries, and technologies
+          I've worked with:
+        </div>
+        <div class="flex flex-wrap gap-3 text-3xl">
+          <div font="kufam semibold">Frontend</div>
+          <div class="i-logos-typescript-icon"></div>
+          <div class="i-logos-javascript"></div>
+          <div class="i-logos-vue"></div>
+          <div class="i-logos-nuxt-icon"></div>
+          <div class="i-logos-tailwindcss-icon"></div>
+          <div class="i-logos-naiveui"></div>
+          <div class="i-logos-bootstrap"></div>
+        </div>
+        <div class="flex flex-wrap gap-3 text-3xl">
+          <div font="kufam semibold">Backend</div>
+          <div class="i-logos-typescript-icon"></div>
+          <div class="i-logos-javascript"></div>
+          <div class="i-logos-nodejs"></div>
+          <div class="i-logos-python"></div>
+          <div class="i-logos-postgresql"></div>
+          <div class="i-logos-mysql"></div>
+          <div class="i-logos-elasticsearch"></div>
+        </div>
+        <div class="flex flex-wrap gap-3 text-3xl">
+          <div font="kufam semibold">Infrastructure</div>
+          <div class="i-logos-aws"></div>
+          <div class="i-logos-aws-ec2"></div>
+          <div class="i-logos-aws-ecs"></div>
+          <div class="i-logos-aws-lambda"></div>
+          <div class="i-logos-docker-icon"></div>
+          <div class="i-logos-terraform-icon"></div>
+          <div class="i-logos-ubuntu"></div>
+          <div class="i-logos-redhat-icon"></div>
+        </div>
+        <div class="flex flex-wrap gap-3 text-3xl">
+          <div font="kufam semibold">Misc.</div>
+          <div class="i-logos-github-actions"></div>
+          <div class="i-logos-jenkins"></div>
+          <div class="i-logos-webdriverio"></div>
+          <div class="i-logos-mocha"></div>
+          <div class="i-logos-chai"></div>
+          <div class="i-logos-prettier"></div>
+          <div class="i-logos-eslint"></div>
+        </div>
+      </div>
+      <div flex="~ col" gap="3">
+        <div
+          flex="~ col grow"
+          border="2 rounded-2xl blue-300"
+          shadow="lg blue-300/50"
+          p="3"
+        >
+          <div font="kufam semibold">WORK EXPERIENCE</div>
+          <div class="grow content-center">
+            <div flex="~" gap="3" class="justify-center">
+              <img src="public/nasa-meatball.svg" class="h-[64px]" />
+              <img src="public/jpl-logo-with-name.png" class="h-[64px]" />
+            </div>
+            <div flex="~ col" gap="3" class="text-center">
+              <div class="place-center font-bold">
+                NASA Jet Propulsion Laboratory
+              </div>
+              <div>Software Systems Engineer</div>
+              <div flex="~ wrap" gap="3" class="justify-center">
+                <div>Pasadena, CA</div>
+                <div class="italic">2017 - 2024</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          flex="~ col grow"
+          border="2 rounded-2xl blue-300"
+          shadow="lg blue-300/50"
+          p="3"
+        >
+          <div font="kufam semibold">EDUCATION</div>
+          <div class="grow content-center py-3">
+            <div flex="~ col" class="text-center" gap="3">
+              <div>
+                <strong>The George Washington University</strong>
+              </div>
+              <div><i>Bachelor of Science, Computer Science</i></div>
+              <div>
+                Technical Tracks: Artificial Intelligence, Computer Security
+              </div>
+              <div flex="~ wrap" gap="3" class="justify-center">
+                <div>Washington, D.C.</div>
+                <div class="italic">2013 - 2017</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          flex="~ col grow"
+          border="2 rounded-2xl blue-300"
+          shadow="lg blue-300/50"
+          p="3"
+        >
+          <div font="kufam semibold">RESUME</div>
+          <div class="grow content-center py-3">
+            <div flex="~ justify-center" gap="2" text="xl center">
+              <div
+                class="i-solar-document-text-line-duotone text-2xl self-end"
+              ></div>
+              Download my resume.
+              <div
+                class="i-solar-document-text-line-duotone text-2xl self-end"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      border="2 rounded-2xl blue-300"
+      shadow="lg blue-300/50"
+      m="t-3"
+      p="3"
+      text="lg center"
+      font="armata"
+    >
+      <p><strong>I'm currently looking for my next role!</strong></p>
+      <p>
+        Tell me about your project, and my future part in it, at joe@jo<span
+          class="hidden"
+          >preventEmailScraping</span
+        >epaolicelli.com.
+      </p>
+    </div>
   </div>
 </template>
 
