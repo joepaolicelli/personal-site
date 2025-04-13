@@ -387,15 +387,17 @@ const dockerOrbit = {
         >
           <div font="kufam semibold">RESUME</div>
           <div class="grow content-center py-3">
-            <div flex="~ justify-center" gap="2" text="xl center">
-              <div
-                class="i-solar-document-text-line-duotone text-2xl self-end"
-              ></div>
-              Download my resume.
-              <div
-                class="i-solar-document-text-line-duotone text-2xl self-end"
-              ></div>
-            </div>
+            <NuxtLink to="/resume.pdf" target="_blank" external>
+              <div flex="~ justify-center" gap="2" text="xl center">
+                <div
+                  class="i-solar-document-text-line-duotone text-2xl self-end"
+                ></div>
+                Download my resume.
+                <div
+                  class="i-solar-document-text-line-duotone text-2xl self-end"
+                ></div>
+              </div>
+            </NuxtLink>
           </div>
         </div>
       </div>
