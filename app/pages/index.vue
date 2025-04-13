@@ -386,7 +386,7 @@ const dockerOrbit = {
           p="3"
         >
           <div font="kufam semibold">RESUME</div>
-          <div class="grow content-center py-3">
+          <div class="grow content-center py-3 text-sky-600 hover:underline">
             <NuxtLink to="/resume.pdf" target="_blank" external>
               <div flex="~ justify-center" gap="2" text="xl center">
                 <div
