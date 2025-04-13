@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { motion, useTime, useTransform } from 'motion-v';
 
+// Picture placement and sizing.
 const nameTextRef = useTemplateRef('nameTextRef');
 const nameTextBounding = reactive(useElementBounding(nameTextRef));
 
@@ -25,6 +26,7 @@ watch(nameTextBounding, (newBounding) => {
   gradientDiv.left = `${newBounding.left - 775}px`;
 });
 
+// Orbit and orbiting icons.
 const draw = {
   hidden: { pathLength: 0, opacity: 0 },
   visible: (i: unknown) => {
@@ -122,10 +124,12 @@ const dockerOrbit = {
 
 <template>
   <div class="container mx-auto px-4 py-4">
+    <!-- Gradient to allow orbit and icons to gracefully fade out. -->
     <div
       class="gradientDiv hidden md:block fixed -z-10"
       :style="gradientDiv"
     ></div>
+    <!-- Picture -->
     <Transition
       enter-active-class="transition-all duration-1000"
       enter-from-class="opacity-0 translate-y--5"
@@ -145,6 +149,7 @@ const dockerOrbit = {
     </Transition>
     <div class="w-fit md:h-[100vh] m-auto">
       <div class="flex flex-col justify-center h-full md:ml-[-100px] my-auto">
+        <!-- Orbit -->
         <motion.svg
           width="1000"
           height="1000"
@@ -164,6 +169,7 @@ const dockerOrbit = {
             :style="shape"
           />
         </motion.svg>
+        <!-- Orbiting Icons -->
         <motion.div
           :style="vueOrbit"
           text="3xl"
@@ -199,6 +205,7 @@ const dockerOrbit = {
           text="3xl"
           class="i-logos-docker-icon hidden md:block absolute ml-[-65px] -z-30"
         />
+        <!-- Intro text. -->
         <div
           class="w-[80vw] md:w-fit bg-white text-center md:text-left"
           flex="~ col "
@@ -215,6 +222,7 @@ const dockerOrbit = {
             a Full Stack Developer.
           </div>
         </div>
+        <!-- Links -->
         <div class="flex gap-5 py-5 self-center md:self-start">
           <div>
             <a
@@ -251,6 +259,7 @@ const dockerOrbit = {
             </a>
           </div>
         </div>
+        <!-- About Me Arrow -->
         <div
           class="hidden absolute self-center bottom-px p-5"
           flex="md:~"
