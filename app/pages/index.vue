@@ -170,7 +170,7 @@ const ubuntuOrbit = {
         <img src="public/me.jpg" class="max-h-[300px] rounded-2xl shadow-xl" />
       </div>
     </Transition>
-    <div class="w-fit md:h-[100vh] m-auto">
+    <div class="w-fit md:h-[100vh] md:min-h-[800px] m-auto">
       <div class="flex flex-col justify-center h-full md:ml-[-100px] my-auto">
         <!-- Orbits -->
         <motion.svg
@@ -292,7 +292,7 @@ const ubuntuOrbit = {
         </div>
         <!-- About Me Arrow -->
         <div
-          class="hidden absolute self-center bottom-px p-5"
+          class="hidden absolute self-center bottom-px p-5 -z-1"
           flex="md:~"
           gap="2"
           text="xl"
