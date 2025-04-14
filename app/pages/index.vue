@@ -13,7 +13,7 @@ const welcomeTextHeight = ref(0);
 const gradientDiv = reactive({
   top: '0px',
   left: '0px',
-  height: '90vh',
+  height: '100vh',
   width: '750px',
 });
 
@@ -52,72 +52,95 @@ const time = useTime();
 
 // Inelegant to repeat this, but prevents warnings from putting the
 // useTransform compostable inside a function.
-const vueOrbit = {
-  x: useTransform(
-    () => Math.cos(((2 * Math.PI) / 25000) * (time.get() % 25000)) * 300,
-  ),
-  y: useTransform(
-    () => Math.sin(((2 * Math.PI) / 25000) * (time.get() % 25000)) * 300,
-  ),
-};
-const tsOrbit = {
-  x: useTransform(
-    () =>
-      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 10000) % 25000)) * 300,
-  ),
-  y: useTransform(
-    () =>
-      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 10000) % 25000)) * 300,
-  ),
-};
-const nodeOrbit = {
-  x: useTransform(
-    () =>
-      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 13000) % 25000)) * 300,
-  ),
-  y: useTransform(
-    () =>
-      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 13000) % 25000)) * 300,
-  ),
-};
-const pythonOrbit = {
-  x: useTransform(
-    () =>
-      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 17000) % 25000)) * 300,
-  ),
-  y: useTransform(
-    () =>
-      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 17000) % 25000)) * 300,
-  ),
-};
+// Inner
 const tailwindOrbit = {
   x: useTransform(
     () =>
-      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 21000) % 25000)) * 300,
+      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 19000) % 25000)) * 250,
   ),
   y: useTransform(
     () =>
-      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 21000) % 25000)) * 300,
-  ),
-};
-const postgresOrbit = {
-  x: useTransform(
-    () =>
-      Math.cos(((2 * Math.PI) / 40000) * ((time.get() + 24000) % 40000)) * 300,
-  ),
-  y: useTransform(
-    () =>
-      Math.sin(((2 * Math.PI) / 40000) * ((time.get() + 24000) % 40000)) * 300,
+      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 19000) % 25000)) * 250,
   ),
 };
 const dockerOrbit = {
   x: useTransform(
     () =>
-      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 5000) % 25000)) * 300,
+      Math.cos(((2 * Math.PI) / 25000) * ((time.get() + 5000) % 25000)) * 250,
   ),
   y: useTransform(
     () =>
-      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 5000) % 25000)) * 300,
+      Math.sin(((2 * Math.PI) / 25000) * ((time.get() + 5000) % 25000)) * 250,
+  ),
+};
+// Middle
+const tsOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 30000) * ((time.get() + 7000) % 30000)) * 350,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 30000) * ((time.get() + 7000) % 30000)) * 350,
+  ),
+};
+const pythonOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 30000) * ((time.get() + 19000) % 30000)) * 350,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 30000) * ((time.get() + 19000) % 30000)) * 350,
+  ),
+};
+const vueOrbit = {
+  x: useTransform(
+    () => Math.cos(((2 * Math.PI) / 30000) * (time.get() % 30000)) * 350,
+  ),
+  y: useTransform(
+    () => Math.sin(((2 * Math.PI) / 30000) * (time.get() % 30000)) * 350,
+  ),
+};
+// Outer
+const nodeOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 39000) * ((time.get() + 1000) % 39000)) * 450,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 39000) * ((time.get() + 1000) % 39000)) * 450,
+  ),
+};
+const postgresOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 39000) * ((time.get() + 10000) % 39000)) * 450,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 39000) * ((time.get() + 10000) % 39000)) * 450,
+  ),
+};
+const nuxtOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 39000) * ((time.get() + 21000) % 39000)) * 450,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 39000) * ((time.get() + 21000) % 39000)) * 450,
+  ),
+};
+const ubuntuOrbit = {
+  x: useTransform(
+    () =>
+      Math.cos(((2 * Math.PI) / 39000) * ((time.get() + 32000) % 39000)) * 450,
+  ),
+  y: useTransform(
+    () =>
+      Math.sin(((2 * Math.PI) / 39000) * ((time.get() + 32000) % 39000)) * 450,
   ),
 };
 </script>
@@ -149,7 +172,7 @@ const dockerOrbit = {
     </Transition>
     <div class="w-fit md:h-[100vh] m-auto">
       <div class="flex flex-col justify-center h-full md:ml-[-100px] my-auto">
-        <!-- Orbit -->
+        <!-- Orbits -->
         <motion.svg
           width="1000"
           height="1000"
@@ -162,7 +185,27 @@ const dockerOrbit = {
             class="circle-path"
             cx="0"
             cy="500"
-            r="300"
+            r="250"
+            stroke="oklch(80.9% 0.105 251.813 / 30%)"
+            :variants="draw"
+            :custom="1"
+            :style="shape"
+          />
+          <motion.circle
+            class="circle-path"
+            cx="0"
+            cy="500"
+            r="350"
+            stroke="oklch(80.9% 0.105 251.813 / 30%)"
+            :variants="draw"
+            :custom="1"
+            :style="shape"
+          />
+          <motion.circle
+            class="circle-path"
+            cx="0"
+            cy="500"
+            r="450"
             stroke="oklch(80.9% 0.105 251.813 / 30%)"
             :variants="draw"
             :custom="1"
@@ -170,31 +213,7 @@ const dockerOrbit = {
           />
         </motion.svg>
         <!-- Orbiting Icons -->
-        <motion.div
-          :style="vueOrbit"
-          text="3xl"
-          class="i-logos-vue hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <motion.div
-          :style="tsOrbit"
-          text="3xl"
-          class="i-logos-typescript-icon hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <motion.div
-          :style="nodeOrbit"
-          text="3xl"
-          class="i-logos-nodejs hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <motion.div
-          :style="pythonOrbit"
-          text="3xl"
-          class="i-logos-python hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <motion.div
-          :style="postgresOrbit"
-          text="3xl"
-          class="i-logos-postgresql hidden md:block absolute ml-[-65px] -z-30"
-        />
+        <!-- Inner -->
         <motion.div
           :style="tailwindOrbit"
           text="3xl"
@@ -204,6 +223,43 @@ const dockerOrbit = {
           :style="dockerOrbit"
           text="3xl"
           class="i-logos-docker-icon hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <!-- Middle -->
+        <motion.div
+          :style="tsOrbit"
+          text="3xl"
+          class="i-logos-typescript-icon hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <motion.div
+          :style="pythonOrbit"
+          text="3xl"
+          class="i-logos-python hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <motion.div
+          :style="vueOrbit"
+          text="3xl"
+          class="i-logos-vue hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <!-- Outer -->
+        <motion.div
+          :style="nodeOrbit"
+          text="3xl"
+          class="i-logos-nodejs hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <motion.div
+          :style="postgresOrbit"
+          text="3xl"
+          class="i-logos-postgresql hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <motion.div
+          :style="nuxtOrbit"
+          text="3xl"
+          class="i-logos-nuxt-icon hidden md:block absolute ml-[-65px] -z-30"
+        />
+        <motion.div
+          :style="ubuntuOrbit"
+          text="3xl"
+          class="i-logos-ubuntu hidden md:block absolute ml-[-65px] -z-30"
         />
         <!-- Intro text. -->
         <div
@@ -279,6 +335,7 @@ const dockerOrbit = {
         flex="~ wrap"
         gap="x-7 y-8 md:y-5"
         border="2 rounded-2xl blue-300"
+        bg="gray-50"
         shadow="lg blue-300/50"
         p="3"
       >
@@ -354,6 +411,7 @@ const dockerOrbit = {
         <div
           flex="~ col grow"
           border="2 rounded-2xl blue-300"
+          bg="gray-50"
           shadow="lg blue-300/50"
           p="3"
         >
@@ -378,6 +436,7 @@ const dockerOrbit = {
         <div
           flex="~ col grow"
           border="2 rounded-2xl blue-300"
+          bg="gray-50"
           shadow="lg blue-300/50"
           p="3"
         >
@@ -401,6 +460,7 @@ const dockerOrbit = {
         <div
           flex="~ col grow"
           border="2 rounded-2xl blue-300"
+          bg="gray-50"
           shadow="lg blue-300/50"
           p="3"
         >
@@ -423,6 +483,7 @@ const dockerOrbit = {
     </div>
     <div
       border="2 rounded-2xl blue-300"
+      bg="gray-50"
       shadow="lg blue-300/50"
       m="t-3"
       p="3"
@@ -442,7 +503,7 @@ const dockerOrbit = {
 
 <style>
 body {
-  background-color: #f9f9f9;
+  background-color: #f9fafb;
 }
 </style>
 
@@ -457,8 +518,8 @@ body {
     to left,
     transparent,
     transparent 1%,
-    #f9f9f9 5%,
-    #f9f9f9 0
+    #f9fafb 5%,
+    #f9fafb 0
   );
 }
 </style>
