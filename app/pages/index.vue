@@ -30,12 +30,12 @@ watch(nameTextBounding, (newBounding) => {
 const draw = {
   hidden: { pathLength: 0, opacity: 0 },
   visible: (i: unknown) => {
-    const delay = typeof i === 'number' ? i * 0.5 : 0.5;
+    const delay = typeof i === 'number' ? i * 0.1 : 0.1;
     return {
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { delay, type: 'spring', duration: 1.5, bounce: 0 },
+        pathLength: { delay, ease: 'easeInOut', duration: 3, bounce: 0 },
         opacity: { delay, duration: 0.01 },
       },
     };
@@ -213,53 +213,28 @@ const ubuntuOrbit = {
           />
         </motion.svg>
         <!-- Orbiting Icons -->
-        <!-- Inner -->
         <motion.div
-          :style="tailwindOrbit"
+          v-for="i of [
+            { style: tailwindOrbit, icon: 'i-logos-tailwindcss-icon' },
+            { style: dockerOrbit, icon: 'i-logos-docker-icon' },
+            { style: tsOrbit, icon: 'i-logos-typescript-icon' },
+            { style: pythonOrbit, icon: 'i-logos-python' },
+            { style: vueOrbit, icon: 'i-logos-vue' },
+            { style: nodeOrbit, icon: 'i-logos-nodejs' },
+            { style: postgresOrbit, icon: 'i-logos-postgresql' },
+            { style: nuxtOrbit, icon: 'i-logos-nuxt-icon' },
+            { style: ubuntuOrbit, icon: 'i-logos-ubuntu' },
+          ]"
+          :key="i.icon"
+          :style="i.style"
+          :initial="{ opacity: 0 }"
+          :animate="{
+            opacity: 1,
+            transition: { opacity: { delay: 2.5, duration: 4 } },
+          }"
           text="3xl"
-          class="i-logos-tailwindcss-icon hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <motion.div
-          :style="dockerOrbit"
-          text="3xl"
-          class="i-logos-docker-icon hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <!-- Middle -->
-        <motion.div
-          :style="tsOrbit"
-          text="3xl"
-          class="i-logos-typescript-icon hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <motion.div
-          :style="pythonOrbit"
-          text="3xl"
-          class="i-logos-python hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <motion.div
-          :style="vueOrbit"
-          text="3xl"
-          class="i-logos-vue hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <!-- Outer -->
-        <motion.div
-          :style="nodeOrbit"
-          text="3xl"
-          class="i-logos-nodejs hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <motion.div
-          :style="postgresOrbit"
-          text="3xl"
-          class="i-logos-postgresql hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <motion.div
-          :style="nuxtOrbit"
-          text="3xl"
-          class="i-logos-nuxt-icon hidden md:block absolute ml-[-65px] -z-30"
-        />
-        <motion.div
-          :style="ubuntuOrbit"
-          text="3xl"
-          class="i-logos-ubuntu hidden md:block absolute ml-[-65px] -z-30"
+          class="hidden md:block absolute ml-[-65px] -z-30"
+          :class="i.icon"
         />
         <!-- Intro text. -->
         <div
