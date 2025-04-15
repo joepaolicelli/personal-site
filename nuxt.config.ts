@@ -45,4 +45,20 @@ export default defineNuxtConfig({
       { name: 'Kufam', weights: [400, 600] },
     ],
   },
+
+  // https://favicon.im/blog/add-favicon-to-nuxt3-project
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/favicon.png',
+        },
+      ],
+    },
+  },
 });
