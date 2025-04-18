@@ -143,6 +143,60 @@ const ubuntuOrbit = {
       Math.sin(((2 * Math.PI) / 39000) * ((time.get() + 32000) % 39000)) * 450,
   ),
 };
+
+const experienceWith = [
+  {
+    category: 'Frontend',
+    techs: [
+      { name: 'TypeScript', icon: 'typescript-icon' },
+      { name: 'JavaScript', icon: 'javascript' },
+      { name: 'Vue.js', icon: 'vue' },
+      { name: 'Nuxt', icon: 'nuxt-icon' },
+      { name: 'TailwindCSS', icon: 'tailwindcss-icon' },
+      { name: 'NaiveUI', icon: 'naiveui' },
+      { name: 'Bootstrap', icon: 'bootstrap' },
+    ],
+  },
+  {
+    category: 'Backend',
+    techs: [
+      { name: 'TypeScript', icon: 'typescript-icon' },
+      { name: 'JavaScript', icon: 'javascript' },
+      { name: 'Node.js', icon: 'nodejs' },
+      { name: 'Python', icon: 'python' },
+      { name: 'PostgreSQL', icon: 'postgresql' },
+      { name: 'MySQL', icon: 'mysql' },
+      { name: 'Elasticsearch', icon: 'elasticsearch' },
+    ],
+  },
+  {
+    category: 'Infrastructure',
+    techs: [
+      { name: 'AWS', icon: 'aws' },
+      { name: 'AWS EC2', icon: 'aws-ec2' },
+      { name: 'AWS ECS', icon: 'aws-ecs' },
+      { name: 'AWS Lambda', icon: 'aws-lambda' },
+      { name: 'Docker', icon: 'docker-icon' },
+      { name: 'Terraform', icon: 'terraform-icon' },
+      { name: 'Ubuntu', icon: 'ubuntu' },
+      { name: 'Redhat', icon: 'redhat-icon' },
+    ],
+  },
+  {
+    category: 'Misc.',
+    techs: [
+      { name: 'GitHub Actions', icon: 'github-actions' },
+      { name: 'Jenkins', icon: 'jenkins' },
+      { name: 'WebdriverIO', icon: 'webdriverio' },
+      { name: 'Mocha', icon: 'mocha' },
+      { name: 'Chai', icon: 'chai' },
+      { name: 'Prettier', icon: 'prettier' },
+      { name: 'ESLint', icon: 'eslint' },
+    ],
+  },
+];
+
+const hoveredTech = ref('');
 </script>
 
 <template>
@@ -340,46 +394,22 @@ const ubuntuOrbit = {
           Some of the many languages, frameworks, libraries, and technologies
           I've worked with:
         </div>
-        <div class="flex flex-wrap gap-3 text-3xl">
-          <div font="kufam semibold">Frontend</div>
-          <div class="i-logos-typescript-icon"></div>
-          <div class="i-logos-javascript"></div>
-          <div class="i-logos-vue"></div>
-          <div class="i-logos-nuxt-icon"></div>
-          <div class="i-logos-tailwindcss-icon"></div>
-          <div class="i-logos-naiveui"></div>
-          <div class="i-logos-bootstrap"></div>
+        <div
+          v-for="cat of experienceWith"
+          :key="cat.category"
+          class="flex flex-wrap gap-3 text-3xl"
+        >
+          <div font="kufam semibold">{{ cat.category }}</div>
+          <div
+            v-for="tech of cat.techs"
+            :key="tech.icon"
+            :class="`i-logos-${tech.icon}`"
+            @mouseover="hoveredTech = tech.name"
+            @mouseleave="hoveredTech = ''"
+          ></div>
         </div>
-        <div class="flex flex-wrap gap-3 text-3xl">
-          <div font="kufam semibold">Backend</div>
-          <div class="i-logos-typescript-icon"></div>
-          <div class="i-logos-javascript"></div>
-          <div class="i-logos-nodejs"></div>
-          <div class="i-logos-python"></div>
-          <div class="i-logos-postgresql"></div>
-          <div class="i-logos-mysql"></div>
-          <div class="i-logos-elasticsearch"></div>
-        </div>
-        <div class="flex flex-wrap gap-3 text-3xl">
-          <div font="kufam semibold">Infrastructure</div>
-          <div class="i-logos-aws"></div>
-          <div class="i-logos-aws-ec2"></div>
-          <div class="i-logos-aws-ecs"></div>
-          <div class="i-logos-aws-lambda"></div>
-          <div class="i-logos-docker-icon"></div>
-          <div class="i-logos-terraform-icon"></div>
-          <div class="i-logos-ubuntu"></div>
-          <div class="i-logos-redhat-icon"></div>
-        </div>
-        <div class="flex flex-wrap gap-3 text-3xl">
-          <div font="kufam semibold">Misc.</div>
-          <div class="i-logos-github-actions"></div>
-          <div class="i-logos-jenkins"></div>
-          <div class="i-logos-webdriverio"></div>
-          <div class="i-logos-mocha"></div>
-          <div class="i-logos-chai"></div>
-          <div class="i-logos-prettier"></div>
-          <div class="i-logos-eslint"></div>
+        <div class="flex justify-end self-end grow min-w-16 min-h-12">
+          <div class="text-xl" font="armata">{{ hoveredTech }}</div>
         </div>
       </div>
       <div flex="~ col" gap="3">
