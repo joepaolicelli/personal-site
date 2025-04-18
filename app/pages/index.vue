@@ -148,50 +148,50 @@ const experienceWith = [
   {
     category: 'Frontend',
     techs: [
-      { name: 'TypeScript', icon: 'typescript-icon' },
-      { name: 'JavaScript', icon: 'javascript' },
-      { name: 'Vue.js', icon: 'vue' },
-      { name: 'Nuxt', icon: 'nuxt-icon' },
-      { name: 'TailwindCSS', icon: 'tailwindcss-icon' },
-      { name: 'NaiveUI', icon: 'naiveui' },
-      { name: 'Bootstrap', icon: 'bootstrap' },
+      { name: 'TypeScript', icon: 'i-logos-typescript-icon' },
+      { name: 'JavaScript', icon: 'i-logos-javascript' },
+      { name: 'Vue.js', icon: 'i-logos-vue' },
+      { name: 'Nuxt', icon: 'i-logos-nuxt-icon' },
+      { name: 'TailwindCSS', icon: 'i-logos-tailwindcss-icon' },
+      { name: 'NaiveUI', icon: 'i-logos-naiveui' },
+      { name: 'Bootstrap', icon: 'i-logos-bootstrap' },
     ],
   },
   {
     category: 'Backend',
     techs: [
-      { name: 'TypeScript', icon: 'typescript-icon' },
-      { name: 'JavaScript', icon: 'javascript' },
-      { name: 'Node.js', icon: 'nodejs' },
-      { name: 'Python', icon: 'python' },
-      { name: 'PostgreSQL', icon: 'postgresql' },
-      { name: 'MySQL', icon: 'mysql' },
-      { name: 'Elasticsearch', icon: 'elasticsearch' },
+      { name: 'TypeScript', icon: 'i-logos-typescript-icon' },
+      { name: 'JavaScript', icon: 'i-logos-javascript' },
+      { name: 'Node.js', icon: 'i-logos-nodejs' },
+      { name: 'Python', icon: 'i-logos-python' },
+      { name: 'PostgreSQL', icon: 'i-logos-postgresql' },
+      { name: 'MySQL', icon: 'i-logos-mysql' },
+      { name: 'Elasticsearch', icon: 'i-logos-elasticsearch' },
     ],
   },
   {
     category: 'Infrastructure',
     techs: [
-      { name: 'AWS', icon: 'aws' },
-      { name: 'AWS EC2', icon: 'aws-ec2' },
-      { name: 'AWS ECS', icon: 'aws-ecs' },
-      { name: 'AWS Lambda', icon: 'aws-lambda' },
-      { name: 'Docker', icon: 'docker-icon' },
-      { name: 'Terraform', icon: 'terraform-icon' },
-      { name: 'Ubuntu', icon: 'ubuntu' },
-      { name: 'Redhat', icon: 'redhat-icon' },
+      { name: 'AWS', icon: 'i-logos-aws' },
+      { name: 'AWS EC2', icon: 'i-logos-aws-ec2' },
+      { name: 'AWS ECS', icon: 'i-logos-aws-ecs' },
+      { name: 'AWS Lambda', icon: 'i-logos-aws-lambda' },
+      { name: 'Docker', icon: 'i-logos-docker-icon' },
+      { name: 'Terraform', icon: 'i-logos-terraform-icon' },
+      { name: 'Ubuntu', icon: 'i-logos-ubuntu' },
+      { name: 'Redhat', icon: 'i-logos-redhat-icon' },
     ],
   },
   {
     category: 'Misc.',
     techs: [
-      { name: 'GitHub Actions', icon: 'github-actions' },
-      { name: 'Jenkins', icon: 'jenkins' },
-      { name: 'WebdriverIO', icon: 'webdriverio' },
-      { name: 'Mocha', icon: 'mocha' },
-      { name: 'Chai', icon: 'chai' },
-      { name: 'Prettier', icon: 'prettier' },
-      { name: 'ESLint', icon: 'eslint' },
+      { name: 'GitHub Actions', icon: 'i-logos-github-actions' },
+      { name: 'Jenkins', icon: 'i-logos-jenkins' },
+      { name: 'WebdriverIO', icon: 'i-logos-webdriverio' },
+      { name: 'Mocha', icon: 'i-logos-mocha' },
+      { name: 'Chai', icon: 'i-logos-chai' },
+      { name: 'Prettier', icon: 'i-logos-prettier' },
+      { name: 'ESLint', icon: 'i-logos-eslint' },
     ],
   },
 ];
@@ -403,7 +403,8 @@ const hoveredTech = ref('');
           <div
             v-for="tech of cat.techs"
             :key="tech.icon"
-            :class="`i-logos-${tech.icon}`"
+            :aria-label="tech.name"
+            :class="tech.icon"
             @mouseover="hoveredTech = tech.name"
             @mouseleave="hoveredTech = ''"
           ></div>
