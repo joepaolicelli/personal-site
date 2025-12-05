@@ -152,6 +152,8 @@ const experienceWith = [
       { name: 'JavaScript', icon: 'i-logos-javascript' },
       { name: 'Vue.js', icon: 'i-logos-vue' },
       { name: 'Nuxt', icon: 'i-logos-nuxt-icon' },
+      { name: 'React', icon: 'i-logos-react' },
+      { name: 'Next.js', icon: 'i-logos-nextjs-icon' },
       { name: 'TailwindCSS', icon: 'i-logos-tailwindcss-icon' },
       { name: 'NaiveUI', icon: 'i-logos-naiveui' },
       { name: 'Bootstrap', icon: 'i-logos-bootstrap' },
@@ -376,7 +378,7 @@ const hoveredTech = ref('');
             right.
           </p>
           <p class="py-2">
-            In my last job, I took on roles from
+            In my work, I've taken on roles from
             <strong>web app design and development</strong>, to improving
             <strong>observability and automation</strong> in large scale data
             pipelines, to team <strong>leadership</strong>, to developing
@@ -423,16 +425,46 @@ const hoveredTech = ref('');
         >
           <div font="kufam semibold">WORK EXPERIENCE</div>
           <div class="grow content-center">
-            <div flex="~" gap="3" class="justify-center">
-              <img src="public/nasa-meatball.svg" class="h-[64px]" />
-              <img src="public/jpl-logo-with-name.png" class="h-[64px]" />
-            </div>
             <div flex="~ col" gap="3" class="text-center">
-              <div class="place-center font-bold">
+              <motion.div
+                :style="{ position: 'absolute' }"
+                :initial="{ opacity: 0, x: -50, y: -50 }"
+                :while-in-view="{
+                  opacity: 0.1,
+                  x: 0,
+                  y: 0,
+                  rotate: -10,
+                  transition: { duration: 0.6 },
+                }"
+              >
+                <img src="public/vannevar-labs.svg" class="h-24" />
+              </motion.div>
+              <div class="place-center font-bold z-10">Vannevar Labs</div>
+              <div class="z-10">Forward Deployed Engineer</div>
+              <div flex="~ wrap" gap="3" class="justify-center z-10">
+                <div>Remote</div>
+                <div class="italic">2025</div>
+              </div>
+            </div>
+            <div flex="~ col" gap="3" class="text-center" m="t-6">
+              <motion.div
+                :style="{ position: 'absolute' }"
+                :initial="{ opacity: 0, x: -50, y: -50 }"
+                :while-in-view="{
+                  opacity: 0.1,
+                  x: 0,
+                  y: 0,
+                  rotate: -10,
+                  transition: { duration: 0.6, delay: 0.3 },
+                }"
+              >
+                <img src="public/nasa-meatball.svg" class="h-24" />
+              </motion.div>
+              <div class="place-center font-bold z-10">
                 NASA Jet Propulsion Laboratory
               </div>
-              <div>Software Systems Engineer</div>
-              <div flex="~ wrap" gap="3" class="justify-center">
+              <div class="z-10">Software Systems Engineer</div>
+              <div flex="~ wrap" gap="3" class="justify-center z-10">
                 <div>Pasadena, CA</div>
                 <div class="italic">2017 - 2024</div>
               </div>
@@ -449,14 +481,26 @@ const hoveredTech = ref('');
           <div font="kufam semibold">EDUCATION</div>
           <div class="grow content-center py-3">
             <div flex="~ col" class="text-center" gap="3">
-              <div>
+              <motion.div
+                :style="{ position: 'absolute' }"
+                :initial="{ opacity: 0, x: -50, y: -50 }"
+                :while-in-view="{
+                  opacity: 0.1,
+                  x: 12,
+                  y: 0,
+                  rotate: -10,
+                  transition: { duration: 0.6, delay: 0.6 },
+                }"
+              >
+                <img src="public/gw-logo.png" class="h-24" />
+              </motion.div>
+              <div class="z-10">
                 <strong>The George Washington University</strong>
               </div>
-              <div><i>Bachelor of Science, Computer Science</i></div>
-              <div>
-                Technical Tracks: Artificial Intelligence, Computer Security
+              <div class="z-10">
+                <i>Bachelor of Science, Computer Science</i>
               </div>
-              <div flex="~ wrap" gap="3" class="justify-center">
+              <div flex="~ wrap" gap="3" class="justify-center z-10">
                 <div>Washington, D.C.</div>
                 <div class="italic">2013 - 2017</div>
               </div>
@@ -496,7 +540,12 @@ const hoveredTech = ref('');
       text="lg center"
       font="armata"
     >
-      <p><strong>I'm currently looking for my next role!</strong></p>
+      <p>
+        <strong
+          >I'm currently looking for my next role, on-site in New York, or
+          remote.</strong
+        >
+      </p>
       <p>
         Tell me about your project, and my future part in it, at joe@jo<span
           class="hidden"

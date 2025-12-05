@@ -1,0 +1,30 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .dark-mode {
+      display: none;
+    }
+    .light-mode {
+      display: block;
+    }
+    @media (prefers-color-scheme: dark) {
+      .dark-mode {
+        display: block;
+      }
+      .light-mode {
+        display: none;
+      }
+    }
+  </style>
+  
+  <g class="dark-mode">
+    <path d="M41.9944 72L15 0L68.6427 0L41.9944 72Z" fill="white"/>
+    <path d="M59.6446 120L45.8013 82.4348L60.1437 43.4783L88.0233 43.4783L59.6446 120Z" fill="white"/>
+    <path d="M62.7593 36.5217L90.4458 36.5217L104.289 0L76.2565 0L62.7593 36.5217Z" fill="white"/>
+  </g>
+  
+  <g class="light-mode">
+    <path d="M41.9944 72L15 0L68.6427 0L41.9944 72Z" fill="black"/>
+    <path d="M59.6446 120L45.8013 82.4348L60.1437 43.4783L88.0233 43.4783L59.6446 120Z" fill="black"/>
+    <path d="M62.7593 36.5217L90.4458 36.5217L104.289 0L76.2565 0L62.7593 36.5217Z" fill="black"/>
+  </g>
+</svg>
